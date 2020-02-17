@@ -39,7 +39,7 @@ urlpatterns = [
         name='ajax.update.cases-actor'),
     url(r'^management/tags/$', ajax.tags, name='ajax-tags'),
 
-    url(r'^bugs/', include(bugs_urls)),
+  #  url(r'^bugs/', include(bugs_urls)),
 
     # Account information zone, such as login method
     url(r'^accounts/', include(auth_urls)),
