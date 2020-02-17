@@ -62,7 +62,7 @@ class New(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['page_title'] = _('New bug')
-        context['form_post_url'] = reverse('bugs-new')
+        #context['form_post_url'] = reverse('bugs-new')
         return context
 
     def get_form_kwargs(self):
