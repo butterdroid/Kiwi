@@ -53,40 +53,40 @@ class Get(DetailView):  # pylint: disable=missing-permission-required
         return context
 
 
-@method_decorator(permission_required('bugs.add_bug'), name='dispatch')
-class New(CreateView):
-    model = Bug
-    form_class = NewBugForm
-    template_name = 'bugs/mutable.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['page_title'] = _('New bug')
-        #context['form_post_url'] = reverse('bugs-new')
-        return context
-
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        kwargs['initial'].update({  # pylint: disable=objects-update-used
-            'reporter': self.request.user,
-        })
-        return kwargs
-
-    def get_form(self, form_class=None):
-        form = super().get_form()
-        # clear fields which are set dynamically via JavaScript
-        form.populate(self.request.POST.get('product', -1))
-        return form
-
-    def form_valid(self, form):
-        response = super().form_valid(form)
-
-        if not self.object.assignee:
-            self.object.assignee = New.find_assignee(self.request.POST)
-            self.object.save()
-        add_comment([self.object], form.cleaned_data['text'], self.request.user)
-
-        return response
+# @method_decorator(permission_required('bugs.add_bug'), name='dispatch')
+# class New(CreateView):
+#     model = Bug
+#     form_class = NewBugForm
+#     template_name = 'bugs/mutable.html'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['page_title'] = _('New bug')
+#         #context['form_post_url'] = reverse('bugs-new')
+#         return context
+#
+#     def get_form_kwargs(self):
+#         kwargs = super().get_form_kwargs()
+#         kwargs['initial'].update({  # pylint: disable=objects-update-used
+#             'reporter': self.request.user,
+#         })
+#         return kwargs
+#
+#     def get_form(self, form_class=None):
+#         form = super().get_form()
+#         # clear fields which are set dynamically via JavaScript
+#         form.populate(self.request.POST.get('product', -1))
+#         return form
+#
+#     def form_valid(self, form):
+#         response = super().form_valid(form)
+#
+#         if not self.object.assignee:
+#             self.object.assignee = New.find_assignee(self.request.POST)
+#             self.object.save()
+#         add_comment([self.object], form.cleaned_data['text'], self.request.user)
+#
+#         return response
 
     @staticmethod
     def assignee_from_components(components):
