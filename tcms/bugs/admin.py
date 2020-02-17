@@ -16,4 +16,4 @@ class BugAdmin(ReadOnlyHistoryAdmin):
         return HttpResponseRedirect(reverse('bugs-get', args=[object_id]))
 
 
-admin.site.register(Bug, BugAdmin)
+# admin.site.register(Bug, BugAdmin)
