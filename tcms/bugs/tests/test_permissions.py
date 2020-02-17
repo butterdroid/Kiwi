@@ -2,7 +2,7 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from tcms import tests
-from tcms.bugs.models import Bug
+# from tcms.bugs.models import Bug
 from tcms.tests import factories
 
 

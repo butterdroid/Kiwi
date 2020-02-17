@@ -13,8 +13,8 @@ from django.views.generic import DetailView
 from django.views.generic.base import TemplateView, View
 from django.views.generic.edit import CreateView, UpdateView
 
-from tcms.bugs.forms import BugCommentForm, NewBugForm
-from tcms.bugs.models import Bug
+# from tcms.bugs.forms import BugCommentForm, NewBugForm
+# from tcms.bugs.models import Bug
 from tcms.core.helpers.comments import add_comment
 from tcms.core.response import ModifySettingsTemplateResponse
 from tcms.management.models import Component

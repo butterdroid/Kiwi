@@ -8,8 +8,8 @@
 
 from django.template.loader import render_to_string
 
-from tcms.bugs.models import Bug
-from tcms.bugs.views import New
+# from tcms.bugs.models import Bug
+# from tcms.bugs.views import New
 from tcms.core.contrib.linkreference.models import LinkReference
 from tcms.issuetracker.base import IssueTrackerType
 

@@ -13,7 +13,7 @@ from grappelli import urls as grappelli_urls
 from modernrpc.core import JSONRPC_PROTOCOL, XMLRPC_PROTOCOL
 from modernrpc.views import RPCEntryPoint
 
-from tcms.bugs import urls as bugs_urls
+# from tcms.bugs import urls as bugs_urls
 from tcms.core import ajax
 from tcms.core import views as core_views
 from tcms.kiwi_auth import urls as auth_urls
